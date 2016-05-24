@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'rest_framework',
+    'rest_framework',
     'authentication',
 ]
 
@@ -82,10 +82,10 @@ DATABASES = {
         'NAME': 'g1527120_u',
         'USER': 'g1527120_u',
         'PASSWORD': 'jBQ4okLjL0',
-        'HOST': 'localhost', #For development outside of Imperial Network
-        'PORT': '12345',     #For development outside of Imperial Network
-        #'HOST': 'db.doc.ic.ac.uk',
-        #'PORT': '5432',
+        'HOST': 'localhost',         #For development outside of Imperial Network
+        'PORT': '12345',             #For development outside of Imperial Network
+        #'HOST': 'db.doc.ic.ac.uk',  #For development within Imperial
+        #'PORT': '5432',             #For development within Imperial
     }
 }
 
