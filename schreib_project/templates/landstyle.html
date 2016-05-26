@@ -1,0 +1,18 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% compress css %}
+
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'schreib/css/bootstrap.css' %}" /> -->
+<link rel="stylesheet" type="text/css" href="{% static 'schreib/css/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'schreib/css/grayscale.css' %}" />
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'schreib/css/ie10-viewport-bug-workaround.css' %}" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'schreib/css/register-style.css' %}" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'schreib/css/starter-template.css' %}" /> -->
+
+<!-- Custom Fonts -->
+<link href="{% static 'schreib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+{% endcompress %}
