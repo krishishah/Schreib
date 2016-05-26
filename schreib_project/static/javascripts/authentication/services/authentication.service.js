@@ -88,7 +88,7 @@
        * @desc Log "Epic failure!" to the console
        */
       function loginErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        console.error('Log In Failed!!');
       }
     }
 
@@ -118,7 +118,7 @@
        * @desc Log "Epic failure!" to the console
        */
       function logoutErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        console.error('Log Out Failed!!');
       }
     }
 

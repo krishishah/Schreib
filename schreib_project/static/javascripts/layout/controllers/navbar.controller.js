@@ -1,12 +1,12 @@
 /**
 * NavbarController
-* @namespace thinkster.layout.controllers
+* @namespace schreib.layout.controllers
 */
 (function () {
   'use strict';
 
   angular
-    .module('thinkster.layout.controllers')
+    .module('schreib.layout.controllers')
     .controller('NavbarController', NavbarController);
 
   NavbarController.$inject = ['$scope', 'Authentication'];
@@ -22,7 +22,7 @@
     /**
     * @name logout
     * @desc Log the user out
-    * @memberOf thinkster.layout.controllers.NavbarController
+    * @memberOf schreib.layout.controllers.NavbarController
     */
     function logout() {
       Authentication.logout();
