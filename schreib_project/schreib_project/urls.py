@@ -22,8 +22,13 @@ from schreib_project.views import IndexView
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
 
+accounts_router = routers.NestedSimpleRouter(
+    router, r'accounts', lookup='account'
+)
 
 urlpatterns = [
+
     url(r'^api/v1/', include(router.urls)),
+    url(r'^api/v1/', include(accounts_router.urls)),
     url('^.*$', IndexView.as_view(), name='index'),
 ]

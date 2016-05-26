@@ -132,11 +132,14 @@
     * @returns {Promise}
     * @memberOf schreib.authentication.services.Authentication
     */
-    function register(email, password, username) {
+    function register(email, password, username, dob, first_name, last_name) {
       return $http.post('/api/v1/accounts/', {
         username: username,
         password: password,
-        email: email
+        email: email,
+        dob: dob,
+        first_name: first_name,
+        last_name: last_name
       }).then(registerSuccessFn, registerErrorFn);
 
       /**

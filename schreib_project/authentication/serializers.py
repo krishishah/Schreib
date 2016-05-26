@@ -12,7 +12,7 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = ('id', 'email', 'username', 'created_at', 'updated_at',
                   'first_name', 'last_name', 'bio', 'dob', 'password',
-                  'confirm_password', 'is_creative', 'is_educational')
+                  'confirm_password')
 
         read_only_fields = ('created_at', 'updated_at',)
 
@@ -25,8 +25,6 @@ class AccountSerializer(serializers.ModelSerializer):
         instance.email = validated_data.get('email', instance.email)
         instance.username = validated_data.get('username', instance.username)
         instance.bio = validated_data.get('bio', instance.bio)
-        instance.is_creative = validated_data.get('is_creative', instance.is_creative)
-        instance.is_educational = validated_data.get('is_educational', instance.is_educational)
         instance.save()
 
         #Password defaults to none if empty password is provided

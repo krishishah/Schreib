@@ -54,16 +54,14 @@ class Account(AbstractBaseUser):
 
     first_name = models.CharField(max_length=40, blank=False)
     last_name  = models.CharField(max_length=40, blank=False)
-    
+
     # YYYY-MM-DD structure
-    dob = models.DateField(blank = False)  
+    dob = models.DateField(blank = False)
 
     #Using Twitter 140 char limit
     bio = models.CharField(max_length=140, blank=True)
 
     is_admin       = models.BooleanField(default=False)
-    is_creative    = models.BooleanField(default=False)
-    is_educational = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

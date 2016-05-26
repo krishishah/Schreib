@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Register | Schreib - Your Writing Companion</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/form-elements.css" rel="stylesheet">
+	<!--    <link href="assets/css/style.css" rel="stylesheet">-->
+
+	<!-- Custom CSS -->
+	<link href="css/register-style.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    	<!-- Navigation -->
+    	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    		<div class="container">
+    			<div class="navbar-header">
+    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+    					<i class="fa fa-bars"></i>
+    				</button>
+    				<a class="navbar-brand page-scroll" href="index.html">
+    					<!-- <i class="fa fa-play-circle"></i> -->  <span class="light">Schreib.</span> 
+    				</a>
+    			</div>
+
+    			<!-- Collect the nav links, forms, and other content for toggling -->
+    			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+    				<ul class="nav navbar-nav">
+    					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+    					<li class="hidden">
+    						<a href="index.html"></a>
+    					</li>
+    					<li>
+    						<a class="page-scroll" href="index.html">Log In</a>
+    					</li>
+    				</ul>
+    			</div>
+    			<!-- /.navbar-collapse -->
+    		</div>
+    		<!-- /.container -->
+    	</nav>
+
+    	<!-- Intro Header -->
+    	<br><br><br>
+    	<div class="container text-center">
+    		<div class="row">
+    			<div class="col-md-8 col-md-offset-2">
+    				<h1>Registration</h1>
+    				<!--                        <p class="intro-text">Your Writing Companion</p>-->
+    			</div>
+    		</div>
+    	</div>            
+
+    	<!--Multi Step Form -->
+    	<div class="msf-container text-center">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col-sm-12 msf-form">
+    					<form role="form" action="" method="post" class="form-inline">
+    						<div class="form-group">
+    							<label for="username">Username:</label><br>
+    							<input type="text" name="username" class="username form-control" id="username">
+    						</div><br><br>
+    						<div class="form-group">
+    							<label for="first-name">First Name:</label><br>
+    							<input type="text" name="first-name" class="first-name form-control" id="first-name">
+    						</div><br><br>  
+    						<div class="form-group">
+    							<label for="last-name">Last Name:</label><br>
+    							<input type="text" name="last-name" class="last-name form-control" id="last-name">
+    						</div><br><br>
+    						<div class="form-group">
+    							<label for="birth-date">Date of Birth (DD/MM/YYYY):</label><br>
+    							<input type="text" name="birth-date" class="birth-date form-control" id="birth-date" pattern="[0-1][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]">
+    						</div><br><br>
+    						<div class="form-group">
+    							<label for="email">Email:</label><br>
+    							<input type="email" name="email" class="email form-control" id="email">
+    						</div><br><br>
+    						<div class="form-group">
+    							<label for="password">Password:</label><br>
+    							<input type="password" name="password" class="password form-control" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 characters">
+    						</div>
+
+    						<br><br><label><b>By clicking the register button below, you agree to the site’s <a href="#"><u>Terms and Conditions</u></a>.</b></label><br><br>
+    						<button type="submit" class="btn">Submit</button>
+    						
+    					</form>
+    					
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	
+    	
+    	
+    	<!-- Custom Theme JavaScript -->
+    	<script src="js/grayscale.js"></script>
+<!--
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+-->
+
+
+</body>
+
+</html>
