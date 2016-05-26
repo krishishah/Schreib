@@ -3,3 +3,6 @@
 
 # SQLite3 database
 *.sqlite3
+
+# Temp files?
+*.DS_Store
