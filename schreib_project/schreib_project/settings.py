@@ -57,8 +57,6 @@ ROOT_URLCONF = 'schreib_project.urls'
 
 WSGI_APPLICATION = 'schreib_project.wsgi.application'
 
-heroku config:set DISABLE_COLLECTSTATIC=1
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
