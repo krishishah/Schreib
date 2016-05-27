@@ -1,7 +1,7 @@
 {
-  "name": "schreib_django_angular_boilerplate",
+  "name": "schreib",
   "version": "1.0.0",
-  "description": "",
+  "description": "your favourite writing companion",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "url": "https://github.com/brwr/schreib-django-angular-boilerplate.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/brwr/schreib-django-angular-boilerplate/issues"
   },
@@ -22,5 +22,6 @@
     "gulp": "^3.8.9",
     "gulp-ng-annotate": "^0.3.3",
     "gulp-uglify": "^1.0.1"
-  }
+  },
+  "devDependencies": {}
 }
