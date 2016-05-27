@@ -1,1 +1,1 @@
-web: gunicorn schreib_project/schreib_project.wsgi
+web: gunicorn schreib_project.wsgi
