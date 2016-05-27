@@ -3,3 +3,4 @@ djangorestframework>=3.3
 psycopg2
 drf-nested-routers
 django-compressor
+gunicorn
