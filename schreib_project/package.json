@@ -1,7 +1,7 @@
 {
-  "name": "schreib",
+  "name": "Schreib",
   "version": "1.0.0",
-  "description": "your favourite writing companion",
+  "description": "Your favourite writing companion",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brwr/schreib-django-angular-boilerplate.git"
+    "url": "https://github.com/krishishah/Schreib.git"
   },
   "author": "",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/brwr/schreib-django-angular-boilerplate/issues"
+    "url": "https://github.com/krishishah/Schreib"
   },
-  "homepage": "https://github.com/brwr/schreib-django-angular-boilerplate",
+  "homepage": "https://schreib-companion.herokuapp.com/",
   "dependencies": {
     "bower": "^1.3.12",
     "gulp": "^3.8.9",
