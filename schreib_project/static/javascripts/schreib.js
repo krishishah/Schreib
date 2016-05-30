@@ -6,7 +6,8 @@
       'schreib.config',
       'schreib.routes',
       'schreib.authentication',
-      'schreib.layout'
+      'schreib.layout',
+      'schreib.posts'
     ]);
 
   angular
