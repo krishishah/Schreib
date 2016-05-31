@@ -87,7 +87,7 @@
         <!-- /.container -->
     </nav>
 
-
+    {% if not user.is_authenticated %}
 
     <!-- Intro Header -->
     <header class="intro" ng-controller="NavbarController as vm">
@@ -119,8 +119,6 @@
 
 
     </header>
-
-
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
@@ -177,8 +175,15 @@
             </div>
         </div>
     </section>
+    
+    {% else %}
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 ng-view">
+        </div>
+    </div>
 
-
+    {% endif %}
     <!-- Footer -->
     <footer>
         <div class="container text-center">
