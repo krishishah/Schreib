@@ -24,6 +24,8 @@
       controller: 'LoginController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/authentication/login.html'
+    }).when('/profile',{
+      templateUrl: '/static/templates/profile.html'
     }).otherwise('/');
   }
 })();

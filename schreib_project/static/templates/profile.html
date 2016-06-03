@@ -1,0 +1,92 @@
+<!-- profile -->
+
+<div class="container" style="padding-top: 60px;">
+  <h1 class="page-header">Profile</h1>
+  <a ng-href="/profile_edit"><button type="button" class="btn btn-info">Edit Profile</button></a>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+        <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
+      </div>
+    </div>
+    <!-- edit form column -->
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+
+      <h3>Personal info</h3>
+
+      <form class="form-horizontal" role="form">
+<!-- ALL VALUE TAKEN FROM DATABASE -->
+        <div class="form-group">
+          <label class="col-md-3 control-label">First name:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="Hayley" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Last name:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="Kwan" type="text">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">Email:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="hayley@abc.com" type="text">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">Username:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="abc" type="text">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="abc" type="password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">Confirm password:</label>
+          <div class="col-md-8">
+            <input class="form-control" value="abc" type="password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label">Your Genres:</label>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-sm-6">
+                <input type="button" class="btn btn-info" value="Romance">
+                <input type="button" class="btn btn-info" value="Sci-fi">
+                <input type="button" class="btn btn-info" value="Horror">
+              </div>
+              <div class="col-sm-6">
+
+                <input type="button" class="btn btn-info" value="Crime">
+                <input type="button" class="btn btn-info" value="Fantasy">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <input type="button" class="btn btn-info" value="Satire">
+                <input type="button" class="btn btn-info" value="Comedy">
+                <input type="button" class="btn btn-info" value="Adventure">
+              </div>
+              <div class="col-sm-6">
+                <input type="button" class="btn btn-info" value="Fan Fiction">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
