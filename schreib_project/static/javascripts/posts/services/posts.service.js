@@ -9,7 +9,7 @@
     .module('schreib.posts.services')
     .factory('Posts', Posts);
 
-  Posts.$inject = ['$http'];
+  Posts.$inject = ['$http', 'Authentication'];
 
   /**
   * @namespace Posts

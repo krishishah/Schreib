@@ -2,7 +2,10 @@
   text-align: center;
 }
 
-.post {}
+.post {
+  background-color: black;
+  border-color: black;
+}
 
 .post .post__meta {
   font-weight: bold;
@@ -14,9 +17,10 @@
   text-decoration: none;
 }
 
-
 .btn-add-new-post {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 40px;
+  right: 40px;
+  color: blue;
+
 }

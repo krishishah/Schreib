@@ -18,6 +18,13 @@
     var vm = this;
 
     vm.isAuthenticated = Authentication.isAuthenticated();
+    vm.authenticatedAccount = Authentication.getAuthenticatedAccount();
+
+
+    if(!vm.authenticatedAccount) {
+      console.log("user is not auth'd");
+    }
+
     vm.posts = [];
 
     activate();

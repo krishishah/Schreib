@@ -41,11 +41,13 @@
      * @memberOf schreib.authentication.services.Authentication
      */
     function getAuthenticatedAccount() {
-      if (!$cookies.authenticatedAccount) {
+      if (!$cookies.get("authenticatedAccount")) {
+        console.log("no cookie");
         return;
       }
+      console.log("cookie");
 
-      return JSON.parse($cookies.authenticatedAccount);
+      return JSON.parse($cookies.get("authenticatedAccount"));
     }
 
 
@@ -56,7 +58,8 @@
      * @memberOf schreib.authentication.services.Authentication
      */
     function isAuthenticated() {
-      return !!$cookies.authenticatedAccount;
+      Authentication.getAuthenticatedAccount();
+      return !!$cookies.get("authenticatedAccount");
     }
 
 
@@ -77,8 +80,8 @@
        * @name loginSuccessFn
        * @desc Set the authenticated account and redirect to index
        */
-      function loginSuccessFn(data, status, headers, config) {
-        Authentication.setAuthenticatedAccount(data.data);
+      function loginSuccessFn(response) {
+        Authentication.setAuthenticatedAccount(response.data);
 
         window.location = '/';
       }
@@ -87,8 +90,8 @@
        * @name loginErrorFn
        * @desc Log "Epic failure!" to the console
        */
-      function loginErrorFn(data, status, headers, config) {
-        console.error('Log In Failed!!');
+      function loginErrorFn(response) {
+        console.error('Epic failure!');
       }
     }
 
@@ -107,7 +110,7 @@
        * @name logoutSuccessFn
        * @desc Unauthenticate and redirect to index with page reload
        */
-      function logoutSuccessFn(data, status, headers, config) {
+      function logoutSuccessFn(response) {
         Authentication.unauthenticate();
 
         window.location = '/';
@@ -117,8 +120,8 @@
        * @name logoutErrorFn
        * @desc Log "Epic failure!" to the console
        */
-      function logoutErrorFn(data, status, headers, config) {
-        console.error('Log Out Failed!!');
+      function logoutErrorFn(response) {
+        console.error('Epic failure!');
       }
     }
 
@@ -132,21 +135,18 @@
     * @returns {Promise}
     * @memberOf schreib.authentication.services.Authentication
     */
-    function register(email, password, username, dob, first_name, last_name) {
+    function register(email, password, username) {
       return $http.post('/api/v1/accounts/', {
         username: username,
         password: password,
-        email: email,
-        dob: dob,
-        first_name: first_name,
-        last_name: last_name
+        email: email
       }).then(registerSuccessFn, registerErrorFn);
 
       /**
       * @name registerSuccessFn
       * @desc Log the new user in
       */
-      function registerSuccessFn(data, status, headers, config) {
+      function registerSuccessFn(response) {
         Authentication.login(email, password);
       }
 
@@ -154,7 +154,7 @@
       * @name registerErrorFn
       * @desc Log "Epic failure!" to the console
       */
-      function registerErrorFn(data, status, headers, config) {
+      function registerErrorFn(response) {
         console.error('Epic failure!');
       }
     }
@@ -168,7 +168,9 @@
      * @memberOf schreib.authentication.services.Authentication
      */
     function setAuthenticatedAccount(account) {
-      $cookies.authenticatedAccount = JSON.stringify(account);
+      //console.log(JSON.parse(JSON.stringify(account)));
+      $cookies.put("authenticatedAccount", JSON.stringify(account));
+      //$cookies.authenticatedAccount = JSON.stringify(account);
     }
 
 
@@ -179,7 +181,7 @@
      * @memberOf schreib.authentication.services.Authentication
      */
     function unauthenticate() {
-      delete $cookies.authenticatedAccount;
+      $cookies.remove("authenticatedAccount");
     }
   }
 })();
