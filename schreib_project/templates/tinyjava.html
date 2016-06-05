@@ -1,0 +1,17 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% compress js %}
+
+<script src="{% static 'tinymce/js/tinymce/tinymce.min.js' %}"></script>
+<script>
+  tinymce.init({
+    selector: '#mytextarea',
+    plugins: 'wordcount autosave spellchecker autoresize save',
+    toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | spellchecker | save',
+    menubar: false,
+    autosave_interval: '30s'
+  });
+</script>
+
+{% endcompress %}
