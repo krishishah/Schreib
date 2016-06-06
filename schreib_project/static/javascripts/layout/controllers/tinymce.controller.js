@@ -12,24 +12,30 @@
 
   function TinyMceController($scope, Authentication, Posts) {
     var vm = this;
+      
+    vm.submit = submit;
 
     activate();
-
+    
     /**
     * @name activate
     * @desc Actions to be performed when this controller is instantiated
     * @memberOf schreib.layout.controllers.TinyMceController
     */
     function activate() {
-      $scope.tinymceModel = 'Initial content';
+      $scope.tinymceModel = 'Write your story here...';
 
       $scope.tinymceOptions = {
-        plugins: 'link image code spellchecker save',
-        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | save'
+        selector: '#textarea',
+        plugins: 'wordcount spellchecker autoresize save',
+        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
+        menubar: false,
+        browser_spellcheck: true,
+        save_onsavecallback: (function () { console.log('Saved'); })
       };
 
       vm.getContent = function() {
-        console.log('Editor content:', $scope.tinymceModel);
+        console.log('Editor content:', $scope.tinymceModel);    
       };
 
       vm.setContent = function() {
@@ -43,7 +49,13 @@
       //   NewPostController.submit();
       // })
 
-      save_onsavecallback: console.log('Story saved')
+//      save_onsavecallback: console.log('Story saved')
     }
+      
+    function submit() {
+        NewPostController.submit();
+    }
+
+
   }
 })();

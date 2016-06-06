@@ -45,7 +45,8 @@
             {% if user.is_authenticated %}
                 <ul class="nav navbar-nav">
                     <li>
-                        <a ng-href="/create">Create</a>
+                        <a ng-href="/create"
+                           ng-dialog-controller="TinyMceController">Create</a>
                     </li>
                     <li>
                         <a ng-href="/discover">Discover</a>
