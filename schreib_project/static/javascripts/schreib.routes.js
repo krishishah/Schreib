@@ -26,6 +26,8 @@
       templateUrl: '/static/templates/authentication/login.html'
     }).when('/profile',{
       templateUrl: '/static/templates/profile.html'
+    }).when('/create',{
+      templateUrl: '/static/templates/posts/new-post.html'
     }).otherwise('/');
   }
 })();
