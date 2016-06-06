@@ -18,7 +18,8 @@
     "bootstrap-material-design": "latest",
     "jquery": "latest",
     "ngDialog": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
+    "angular-ui-tinymce": "latest"
   },
   "description": "",
   "main": ""
