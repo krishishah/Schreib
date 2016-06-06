@@ -9,7 +9,7 @@
     .module('schreib.posts.controllers')
     .controller('NewPostController', NewPostController);
 
-  NewPostController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Posts'];
+  NewPostController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Posts', 'Layout'];
 
   /**
   * @namespace NewPostController
@@ -18,6 +18,8 @@
     var vm = this;
 
     vm.submit = submit;
+
+    vm.content = TinyMceController.getContent;
 
     /**
     * @name submit
