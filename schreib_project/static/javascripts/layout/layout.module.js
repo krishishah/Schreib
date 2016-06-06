@@ -7,8 +7,7 @@
     ]);
 
   angular
-    .module('schreib.layout.controllers', ['ui.tinymce']);
+    .module('schreib.layout.controllers', []);
 
-  //var myAppModule = angular.module('myApp', ['ui.tinymce']);
 
 })();

@@ -9,7 +9,7 @@
     .module('schreib.posts.controllers')
     .controller('NewPostController', NewPostController);
 
-  NewPostController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Posts', 'Layout'];
+  NewPostController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Posts'];
 
   /**
   * @namespace NewPostController
@@ -17,9 +17,12 @@
   function NewPostController($rootScope, $scope, Authentication, Snackbar, Posts) {
     var vm = this;
 
+    activate();
+
     vm.submit = submit;
 
-    vm.content = TinyMceController.getContent;
+    vm.content = vm.getContent();
+
 
     /**
     * @name submit
@@ -27,14 +30,17 @@
     * @memberOf schreib.posts.controllers.NewPostController
     */
     function submit() {
+      console.log(vm.content);
+
       $rootScope.$broadcast('post.created', {
+
         content: vm.content,
         author: {
           username: Authentication.getAuthenticatedAccount().username
         }
       });
 
-      $scope.closeThisDialog();
+      //$scope.closeThisDialog();
 
       Posts.create(vm.content).then(createPostSuccessFn, createPostErrorFn);
 
@@ -57,5 +63,30 @@
         Snackbar.error(data.error);
       }
     }
+
+
+    function activate() {
+      $scope.tinymceModel = 'Write your story here...';
+
+      $scope.tinymceOptions = {
+        selector: '#textarea',
+        plugins: 'wordcount spellchecker autoresize save',
+        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
+        menubar: false,
+        browser_spellcheck: true,
+        save_onsavecallback: (function () { console.log('Saved'); })
+      };
+
+      vm.getContent = function() {
+        console.log('Editor content:', $scope.tinymceModel);
+        return $scope.tinymceModel;
+      };
+    }
+
+    vm.setContent = function() {
+      $scope.tinymceModel = 'Time: ' + (new Date());
+      console.log('Editor content:');
+    };
+
   }
 })();

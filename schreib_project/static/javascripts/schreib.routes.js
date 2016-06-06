@@ -27,6 +27,8 @@
     }).when('/profile',{
       templateUrl: '/static/templates/profile.html'
     }).when('/create',{
+      controller: 'NewPostController',
+      controllerAs: 'vm',
       templateUrl: '/static/templates/posts/new-post_tiny.html'
     }).otherwise('/');
   }

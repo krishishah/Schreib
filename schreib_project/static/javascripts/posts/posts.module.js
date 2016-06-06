@@ -9,7 +9,7 @@
     ]);
 
   angular
-    .module('schreib.posts.controllers', []);
+    .module('schreib.posts.controllers', ['ui.tinymce']);
 
   angular
     .module('schreib.posts.directives', ['ngDialog']);
