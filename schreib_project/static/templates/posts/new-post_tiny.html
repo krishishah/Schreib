@@ -1,32 +1,8 @@
-<!-- <form role="form" ng-submit="vm.submit()">
-  <div class="form-group">
-    <label for="post__content">Write your story here:</label>
-    <textarea class="form-control"
-              id="post__content"
-              rows="3"
-              placeholder="Once upon a time..."
-              ng-model="vm.content">
-    </textarea>
-  </div>
 
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary">
-      Post
-    </button>
-  </div>
-</form> -->
 <div>
 <br>
 <form role="form" method="post" ng-controller="NewPostController as vm" ng-submit="vm.submit()">
-
-  <!-- <div class="form-group">
-    <label for="post__title">Title:</label>
-    <input type="text" class="form-control" id="post__title" ng-model="vm.title" placeholder="Title" required autofocus/>
-  </div> -->
-
   <textarea id="textarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
-  <!-- <button ng-click="vm.getContent()">Get content</button>
-  <button ng-click="vm.setContent()">Set content</button> -->
   <br><br>
   <div class="form-group text-right">
     <button type="submit" class="btn btn-primary">
