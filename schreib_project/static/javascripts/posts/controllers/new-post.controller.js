@@ -21,28 +21,29 @@
 
     vm.submit = submit;
 
-    vm.content = vm.getContent();
-
-
     /**
     * @name submit
     * @desc Create a new Post
     * @memberOf schreib.posts.controllers.NewPostController
     */
     function submit() {
-      console.log(vm.content);
+      var content = vm.getContent();
+      var title = vm.getTitle();
+      var genre = vm.getGenre();
 
       $rootScope.$broadcast('post.created', {
 
-        content: vm.content,
+        content: content,
         author: {
           username: Authentication.getAuthenticatedAccount().username
-        }
+        },
+        title: title,
+        genre: genre
       });
 
-      //$scope.closeThisDialog();
+      // $scope.closeThisDialog();
 
-      Posts.create(vm.content).then(createPostSuccessFn, createPostErrorFn);
+      Posts.create(title, content, genre).then(createPostSuccessFn, createPostErrorFn);
 
 
       /**
@@ -81,6 +82,17 @@
         console.log('Editor content:', $scope.tinymceModel);
         return $scope.tinymceModel;
       };
+
+      vm.getTitle = function() {
+        console.log('Title:', $scope.title);
+        return $scope.title;
+      };
+
+      vm.getGenre = function() {
+        console.log('Genre:', $scope.genre);
+        return $scope.genre;
+      };
+
     }
 
     vm.setContent = function() {

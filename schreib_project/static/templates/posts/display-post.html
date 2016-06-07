@@ -1,0 +1,17 @@
+<div posts="vm.posts" post="post" class="post" ng-show="vm.isAuthenticated && vm.posts && vm.posts.length">
+
+    <br>
+    <h1>{{ post.title }}</h1>
+    <br><h4>by {{ post.author.username }}</h4>
+        
+    <div class="post__content">
+          {{ post.content }}
+    </div><br><br>
+    
+    <div class="text-right">
+        <button type="button" class="btn btn-primary" ng-href="/review-{{post.title}}">
+            Review >
+        </button>
+    </div>
+    
+</div>

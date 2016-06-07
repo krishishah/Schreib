@@ -44,9 +44,11 @@
     * @returns {Promise}
     * @memberOf schreib.posts.services.Posts
     */
-    function create(content) {
+    function create(title, content, genre) {
       return $http.post('/api/v1/posts/', {
-        content: content
+        title: title,
+        content: content,
+        genre: genre
       });
     }
 

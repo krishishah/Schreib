@@ -1,3 +1,11 @@
+a {
+  color: black;
+}
+
+a:hover {
+  color: firebrick;
+}
+
 .no-posts-here {
   text-align: center;
 }
@@ -10,11 +18,34 @@
 .post .post__meta {
   font-weight: bold;
   text-align: right;
-  padding-bottom: 19px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 8px;
+  background-color: lightgoldenrodyellow;
 }
 
 .post .post__meta a:hover {
   text-decoration: none;
+}
+
+.post .post__title {
+  text-decoration: none;
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 2px;
+  text-align: center;
+}
+
+.post .post__genre {
+  text-decoration: none;
+  background-color: beige;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+  text-align: right;
+  color: black;
+  font-size: 12px;
 }
 
 .btn-add-new-post {

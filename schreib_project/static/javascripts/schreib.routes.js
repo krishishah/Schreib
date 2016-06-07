@@ -30,6 +30,14 @@
       controller: 'NewPostController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/posts/new-post_tiny.html'
+    }).when('/discover',{
+      controller: 'IndexController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/layout/index.html'
+    }).when('/read',{
+      controller: 'IndexController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/posts/display-post.html'
     }).otherwise('/');
   }
 })();

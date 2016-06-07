@@ -1,15 +1,19 @@
-<div class="row" ng-cloak>
-  <div ng-repeat="column in vm.columns">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-      <div ng-repeat="post in column">
-        <post post="post"></post>
+<div>
+  <br><br>
+  <h1> Discover other stories! </h1>
+  <div class="row" ng-cloak>
+    <div ng-repeat="column in vm.columns">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div ng-repeat="post in column">
+          <post post="post"></post><br>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div ng-hide="vm.columns && vm.columns.length">
-    <div class="col-sm-12 no-posts-here">
-      <em>The are no posts here.</em>
+    
+    <div ng-hide="vm.columns && vm.columns.length">
+      <div class="col-sm-12 no-posts-here">
+        <em>The are no posts here.</em>
+      </div>
     </div>
   </div>
 </div>
