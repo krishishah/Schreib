@@ -12,7 +12,9 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = ('id', 'email', 'username', 'created_at', 'updated_at',
                   'first_name', 'last_name', 'bio', 'dob', 'password',
-                  'confirm_password')
+                  'confirm_password', 'likes_action',
+                  'likes_adventure', 'likes_crime', 'likes_fan_fiction',
+                  'likes_fantasy', 'likes_horror', 'likes_romance')
 
         read_only_fields = ('created_at', 'updated_at',)
 
