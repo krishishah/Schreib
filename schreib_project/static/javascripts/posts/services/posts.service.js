@@ -6,8 +6,8 @@
   'use strict';
 
   angular
-    .module('schreib.posts.services')
-    .factory('Posts', Posts);
+  .module('schreib.posts.services')
+  .factory('Posts', Posts);
 
   Posts.$inject = ['$http', 'Authentication'];
 
@@ -55,12 +55,12 @@
     }
 
     /**
-     * @name get
-     * @desc Get the Post of a given user by id
-     * @param {string} username The username to get Posts for
-     * @returns {Promise}
-     * @memberOf schreib.posts.services.Posts
-     */
+    * @name get
+    * @desc Get the Post of a given user by id
+    * @param {string} username The username to get Posts for
+    * @returns {Promise}
+    * @memberOf schreib.posts.services.Posts
+    */
     function get_single(id) {
       return $http.get('/api/v1/posts/' + id + '/');
     }
@@ -70,12 +70,12 @@
     }
 
     /**
-     * @name get
-     * @desc Get the Posts of a given user
-     * @param {string} username The username to get Posts for
-     * @returns {Promise}
-     * @memberOf schreib.posts.services.Posts
-     */
+    * @name get
+    * @desc Get the Posts of a given user
+    * @param {string} username The username to get Posts for
+    * @returns {Promise}
+    * @memberOf schreib.posts.services.Posts
+    */
     function get(username) {
       return $http.get('/api/v1/accounts/' + username + '/posts/');
     }

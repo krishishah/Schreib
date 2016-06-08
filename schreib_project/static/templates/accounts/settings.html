@@ -1,6 +1,7 @@
 <div class="col-md-4 col-md-offset-4">
   <div class="row" ng-show="vm.account">
     <form role="form" class="settings" ng-submit="vm.update()">
+
       <div class="form-group">
         <label for="settings__email">Email</label>
         <input type="text" class="form-control" id="settings__email" ng-model="vm.account.email" placeholder="Email Address" />
@@ -21,15 +22,45 @@
         <input type="text" class="form-control" id="settings__username" ng-model="vm.account.username" placeholder="Username" />
       </div>
 
-      <div class="form-group">
-        <label for="settings__tagline">Tagline</label>
-        <textarea class="form-control" id="settings__tagline" ng-model="vm.account.tagline" placeholder="Tagline" />
-      </div>
+      <!-- <div class="form-group">
+      <label for="settings__tagline">Bio</label>
+      <textarea class="form-control" id="settings__bio" ng-model="vm.account.bio" placeholder="Bio" />
+    </div> -->
 
-      <div class="form-group">
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn" ng-click="vm.destroy()">Delete Account</button>
+    <div class="form-group">
+      <label>Genres I like reading:</label><br>
+
+      <div class="checkboxes-1">
+
+        <label class="checkbox-inline">
+          <input type="checkbox" name="action" value="action" id="settings__likes_action" ng-model="vm.account.likes_action" ng-init="vm.account.likes_action"> Action
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="adventure" value="adventure" id="settings__likes_adventure" ng-model="vm.account.likes_adventure"> Adventure
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="crime" value="crime" id="settings__likes_crime" ng-model="vm.account.likes_crime"> Crime
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="fan_fiction" value="fan_fiction" id="settings__likes_fan_fiction" ng-model="vm.account.likes_fan_fiction"> Fan Fiction
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="fantasy" value="fantasy" id="settings__likes_fantasy" ng-model="vm.account.likes_fantasy"> Fantasy
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="horror" value="horror" id="settings__likes_horror" ng-model="vm.account.likes_horror"> Horror
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="romance" value="romance" id="settings__likes_romance" ng-model="vm.account.likes_romance"> Romance
+        </label>
       </div>
-    </form>
-  </div>
+    </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-danger pull-right" ng-click="vm.destroy()">Delete Account</button>
+    </div>
+
+  </form>
+</div>
 </div>

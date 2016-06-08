@@ -80,17 +80,21 @@
 
     function activateTinyMce() {
 
-      $scope.tinymceModel = vm.content;
-
+      //$scope.tinymceModel = '<span>'  + vm.content + '</span>';
+      //$scope.tinymceModel = vm.content;
 
       $scope.tinymceOptions = {
         selector: 'textarea',
-        plugins: 'wordcount spellchecker autoresize save',
-        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
+        plugins: 'wordcount spellchecker autoresize save code',
+        toolbar: 'code | undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
         menubar: false,
         browser_spellcheck: true,
         save_onsavecallback: (function () { console.log('Saved'); })
       };
+
+      $scope.tinymceModel = JSON.stringify(vm.content);
+      console.log("this is the content" + typeof JSON.stringify(vm.content));
+
 
       vm.getContent = function() {
         console.log('Editor content:', $scope.tinymceModel);
@@ -109,10 +113,10 @@
 
     }
 
-    vm.setContent = function() {
-      $scope.tinymceModel = 'Time: ' + (new Date());
-      console.log('Editor content:');
-    };
+    // vm.setContent = function() {
+    //   $scope.tinymceModel = 'Time: ' + (new Date());
+    //   console.log('Editor content:');
+    // };
 
 
 

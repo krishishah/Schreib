@@ -55,6 +55,7 @@
        */
       function accountSuccessFn(response) {
         vm.account = response.data;
+        console.log(vm.account);
       }
 
       /**
@@ -105,9 +106,8 @@
      */
     function update() {
       var username = $routeParams.username.substr(1);
-
       Account.update(username, vm.account).then(accountSuccessFn, accountErrorFn);
-
+      console.log(vm.account);
       /**
        * @name accountSuccessFn
        * @desc Show success snackbar
