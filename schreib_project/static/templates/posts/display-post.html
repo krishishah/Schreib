@@ -1,17 +1,24 @@
-<div posts="vm.posts" post="post" class="post" ng-show="vm.isAuthenticated && vm.posts && vm.posts.length">
+<div posts="vm.post" post="post" class="post" ng-show="vm.post">
 
     <br>
-    <h1>{{ post.title }}</h1>
-    <br><h4>by {{ post.author.username }}</h4>
-        
-    <div class="post__content">
-          {{ post.content }}
+    <h1>{{ vm.post.title }}</h1>
+    <br><h4>By {{ vm.post.author.first_name }} {{ vm.post.author.last_name }} </h4>
+
+    <div class="post__content" contenteditable="true">
+          {{ vm.post.content }}
     </div><br><br>
-    
-    <div class="text-right">
-        <button type="button" class="btn btn-primary" ng-href="/review-{{post.title}}">
-            Review >
+
+    <!-- <div>
+    <br>
+    <form role="form" method="post" ng-controller="DisplayPostController as vm" ng-submit="vm.submit()">
+      <textarea id="textarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+      <br><br>
+      <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">
+          Post
         </button>
-    </div>
-    
+      </div>
+    </form>
+    </div> -->
+
 </div>

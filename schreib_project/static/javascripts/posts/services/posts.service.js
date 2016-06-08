@@ -19,7 +19,9 @@
     var Posts = {
       all: all,
       create: create,
-      get: get
+      get: get,
+      get_single: get_single,
+      get_single_content: get_single_content
     };
 
     return Posts;
@@ -54,6 +56,21 @@
 
     /**
      * @name get
+     * @desc Get the Post of a given user by id
+     * @param {string} username The username to get Posts for
+     * @returns {Promise}
+     * @memberOf schreib.posts.services.Posts
+     */
+    function get_single(id) {
+      return $http.get('/api/v1/posts/' + id + '/');
+    }
+
+    function get_single_content(id) {
+      return $http.get('/api/v1/posts/' + id.content + '/');
+    }
+
+    /**
+     * @name get
      * @desc Get the Posts of a given user
      * @param {string} username The username to get Posts for
      * @returns {Promise}
@@ -62,5 +79,8 @@
     function get(username) {
       return $http.get('/api/v1/accounts/' + username + '/posts/');
     }
+
+
+
   }
 })();

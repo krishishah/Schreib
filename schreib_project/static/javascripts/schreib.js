@@ -8,7 +8,8 @@
       'schreib.authentication',
       'schreib.layout',
       'schreib.posts',
-      'schreib.utils'
+      'schreib.utils',
+      'schreib.accounts'
     ]);
 
   angular
