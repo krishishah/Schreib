@@ -1,19 +1,119 @@
 <div posts="vm.post" post="post" class="post" ng-show="vm.post">
 
   <br>
-  <h1>Review</h1>
-  <br><h3>{{ vm.post.title }}</h3>
+  <h1>{{ vm.post.title }}</h1>
   <br><h4>by {{ vm.post.author.first_name }} {{ vm.post.author.last_name }} </h4>
+
+  <h5> Review: <br>
+       <i>1. Edit the story in red with any comments and edits you would make.<br>
+          2. Fill in the table below the story, and then give an overall rating and comment.
+      </i>
+  </h5>
 
   <!-- <div class="post__content" contenteditable="true">
     {{ vm.post.content }}
   </div><br><br> -->
 
-  <div class="post__content" contenteditable="true">
+  <div class="post__content">
     <br>
     <form role="form" method="post" ng-controller="DisplayPostController as vm" ng-submit="vm.submit()">
       <textarea class="tinyMce" id="readarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
       <br><br>
+
+      <table style="width:100%">
+      <tr>
+        <th class="consider">Things to consider</th>
+        <th class="welldone">Done Well</th>
+        <th class="improve">To Be Improved</th>
+      </tr>
+      <tr>
+        <td>
+          Language
+          <ul>
+            <li>Control: fluency, clarity, precision
+            <li>Inventiveness, selectivity and originality in description
+            <li>Use of the senses
+            <li>Balance between dramatization and exposition (showing and telling)
+            <li>Use of cliché generalization and repetition
+          </ul>
+        </td>
+        <td>
+          <textarea rows="9" class="table" id="language_well" ng-model="vm.language_well" required></textarea>
+        </td>
+       <td>
+          <textarea rows="9" class="table" id="language_improve" ng-model="vm.language_improve" required></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Character
+          <ul>
+            <li>Convincing, complex, well realized
+            <li>Motive and conflict well realized
+            <li>Psychology well presented
+            <li>Dialogue reveals character and advances plot
+          </ul>
+        </td>
+        <td>
+          <textarea rows="6" class="table" id="character_well" ng-model="vm.character_well" required></textarea>
+        </td>
+       <td>
+          <textarea rows="6" class="table" id="character_improve" ng-model="vm.character_improve" required></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Setting
+          <ul>
+            <li>Fictional world vivid and convincing
+          </ul>
+        </td>
+        <td>
+          <textarea rows="2" class="table" id="setting_well" ng-model="vm.setting_well" required></textarea>
+        </td>
+       <td>
+          <textarea rows="2" class="table" id="setting_improve" ng-model="vm.setting_improve" required></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Structure
+          <ul>
+            <li>Coherent, good control of plot development
+            <li>Evidence of good judgment in choice of form for theme
+            <li>Management of time: control of flashbacks/forwards
+            <li>Management of point of view
+            <li>Narrative arc well-realised
+          </ul>
+        </td>
+        <td>
+          <textarea rows="9" class="table" id="structure_well" ng-model="vm.structure_well" required></textarea>
+        </td>
+       <td>
+          <textarea rows="9" class="table" id="structure_improve" ng-model="vm.structure_improve" required></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Theme/Content
+          <ul>
+            <li>Originality and inventiveness
+            <li>Insightful
+            <li>Powerful
+            <li>Engaging
+            <li>Demonstrates emotional/intellectual depth
+          </ul>
+        </td>
+        <td>
+          <textarea rows="7" class="table" id="theme_well" ng-model="vm.theme_well" required></textarea>
+        </td>
+       <td>
+          <textarea rows="7" class="table" id="theme_improve" ng-model="vm.theme_improve" required></textarea>
+        </td>
+      </tr>
+      </table>
+
+      <br>
 
       <div class="row">
         <div class="col-sm-2">
@@ -28,7 +128,7 @@
             <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Good, but minor revisions needed"></label>
             <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Has potential, consider revisions"></label>
             <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Can be considerably improved, but has potential"></label>
-            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Can be considerably improved, but has potential"></label>
             <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Consider revising completely"></label>
             <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Revise completely"></label>
           </fieldset>
@@ -40,81 +140,7 @@
         <textarea class="form-control" id="comment" ng-model="vm.comment" required></textarea> 
       </div>
 
-      <div class="row">
-        <div class="col-sm-2">
-          <label for="flow">Story flow:</label>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="rating" id="flow">
-            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Excellent"></label>
-            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Very good"></label>
-            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Very good"></label>
-            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Good"></label>
-            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Good, but can definitely be improved"></label>
-            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Needs improvement"></label>
-            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Needs improvement"></label>
-            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="!! Work on this !!"></label>
-            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="!! Work on this !!"></label>
-            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="!! Work on this !!"></label>
-          </fieldset>
-        </div>
-
-        <div class="col-sm-2">
-          <label for="style">Consistency of style:</label>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="rating" id="style">
-            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Excellent"></label>
-            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Very good"></label>
-            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Very good"></label>
-            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Good"></label>
-            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Good, but can definitely be improved"></label>
-            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Needs improvement"></label>
-            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Needs improvement"></label>
-            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="!! Work on this !!"></label>
-            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="!! Work on this !!"></label>
-            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="!! Work on this !!"></label>
-          </fieldset>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-2">
-          <label for="character">Character development:</label>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="rating" id="character">
-            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Excellent"></label>
-            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Very good"></label>
-            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Very good"></label>
-            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Good"></label>
-            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Good, but can definitely be improved"></label>
-            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Needs improvement"></label>
-            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Needs improvement"></label>
-            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="!! Work on this !!"></label>
-            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="!! Work on this !!"></label>
-            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="!! Work on this !!"></label>
-          </fieldset>
-        </div>
-
-        <div class="col-sm-2">
-          <label for="world">World building (if applicable):</label>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="rating" id="world">
-            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Excellent"></label>
-            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Very good"></label>
-            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Very good"></label>
-            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Good"></label>
-            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Good, but can definitely be improved"></label>
-            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Needs improvement"></label>
-            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Needs improvement"></label>
-            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="!! Work on this !!"></label>
-            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="!! Work on this !!"></label>
-            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="!! Work on this !!"></label>
-          </fieldset>
-        </div>
-      </div>
+      
 
       <div class="form-group text-right">
         <button type="submit" class="btn btn-primary">
