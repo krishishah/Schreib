@@ -14,11 +14,13 @@
       <textarea class="tinyMce mceNonEditable" id="readarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
       <br><br>
       <div class="form-group text-right">
-        <button type="Review" class="btn btn-primary">
-          Review
-        </button>
+        <a ng-href="/+{{ vm.post.author.username }}/posts/{{ vm.post.id }}/review" class="btn btn-primary">
+          Review >
+        </a>
       </div>
     </form>
   </div>
+
+  <!-- Display reviews here (overall comment & rating) if logged in user is same as post author -->
 
 </div>

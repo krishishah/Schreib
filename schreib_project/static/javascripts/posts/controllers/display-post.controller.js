@@ -39,7 +39,7 @@
         plugins: 'autoresize',
         toolbar: false,
         menubar: false,
-        browser_spellcheck: true,
+        statusbar: false,
         save_onsavecallback: (function () { console.log('Saved'); })
       };
     }

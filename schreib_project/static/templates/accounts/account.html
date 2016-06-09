@@ -1,6 +1,11 @@
 <div class="account" ng-show="vm.account">
+
+
+
   <div class="account__header">
-    <h1 class="account__username">+{{ vm.account.username }}</h1>
+  	<br><br>
+    <h1 class="account__username">{{ vm.account.first_name }} {{ vm.account.last_name }}</h1>
+    <h3><i> {{ vm.account.username }} </i></h3>
     <p class="account__tagline">{{ vm.account.bio }}</p>
   </div>
 
