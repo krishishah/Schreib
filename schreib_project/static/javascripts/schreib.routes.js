@@ -34,6 +34,10 @@
       controller: 'IndexController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/layout/index.html'
+    }).when('/review', {
+      controller: 'IndexController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/posts/review.html'
     }).when('/+:username', {
       controller: 'AccountController',
       controllerAs: 'vm',
@@ -46,6 +50,6 @@
       controller: 'AccountSettingsController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/accounts/settings.html'
-    }).otherwise('/');
+    }).otherwise('/');;
   }
 })();
