@@ -2,7 +2,15 @@
 <div>
 <br>
 <form role="form" method="post" ng-controller="NewPostController as vm" ng-submit="vm.submit()">
-  <textarea id="textarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+  <div class="form-group">
+    <label for="post__title">Title:</label>
+    <input type="text" class="form-control" id="post__title" ng-model="title" placeholder="Title" required autofocus/>
+  </div>
+  <textarea id="textarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea><br>
+  <div class="form-group">
+    <label for="post__genre">Genre:</label>
+    <input type="text" class="form-control" id="post__genre" ng-model="genre" placeholder="Genre" required autofocus/>
+  </div>
   <br><br>
   <div class="form-group text-right">
     <button type="submit" class="btn btn-primary">

@@ -30,6 +30,22 @@
       controller: 'NewPostController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/posts/new-post_tiny.html'
+    }).when('/discover',{
+      controller: 'IndexController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/layout/index.html'
+    }).when('/+:username', {
+      controller: 'AccountController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/accounts/account.html'
+    }).when('/+:username/posts/:id',{
+      controller: 'DisplayPostController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/posts/display-post.html'
+    }).when('/+:username/settings', {
+      controller: 'AccountSettingsController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/accounts/settings.html'
     }).otherwise('/');
   }
 })();

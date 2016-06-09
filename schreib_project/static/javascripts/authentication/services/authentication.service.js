@@ -135,14 +135,26 @@
     * @returns {Promise}
     * @memberOf schreib.authentication.services.Authentication
     */
-    function register(email, password, username, dob, first_name, last_name) {
+    function register(email, password, username, dob, first_name, last_name, likes_action,
+              likes_adventure, likes_crime, likes_fan_fiction,
+              likes_fantasy, likes_horror, likes_romance) {
+                console.log(likes_action);
+                console.log(likes_adventure);
+                console.log(likes_crime);
       return $http.post('/api/v1/accounts/', {
         username: username,
         password: password,
         email: email,
         dob: dob,
         first_name: first_name,
-        last_name: last_name
+        last_name: last_name,
+        likes_action: likes_action,
+        likes_adventure: likes_adventure,
+        likes_crime: likes_crime,
+        likes_fan_fiction: likes_fan_fiction,
+        likes_fantasy: likes_fantasy,
+        likes_horror: likes_horror,
+        likes_romance: likes_romance
       }).then(registerSuccessFn, registerErrorFn);
 
       /**
@@ -151,6 +163,7 @@
       */
       function registerSuccessFn(response) {
         Authentication.login(email, password);
+
       }
 
       /**

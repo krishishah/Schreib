@@ -3,7 +3,9 @@ from django.db import models
 
 class AccountManager(BaseUserManager):
     def create_user(self, email, username, password,
-                    dob, first_name, last_name, **extra_args):
+                    dob, first_name, last_name, likes_action,
+                    likes_adventure, likes_crime, likes_fan_fiction,
+                    likes_fantasy, likes_horror, likes_romance, **extra_args):
         if not email:
             raise ValueError('Users must have a valid email address.')
 
@@ -28,6 +30,13 @@ class AccountManager(BaseUserManager):
             dob = dob,
             first_name = first_name,
             last_name = last_name,
+            likes_action = likes_action,
+            likes_adventure = likes_adventure,
+            likes_crime = likes_crime,
+            likes_fan_fiction = likes_fan_fiction,
+            likes_fantasy = likes_fantasy,
+            likes_horror = likes_horror,
+            likes_romance = likes_romance,
             **extra_args)
 
         account.set_password(password)
@@ -38,9 +47,13 @@ class AccountManager(BaseUserManager):
 
 
     def create_superuser(self, email, username, password,
-                    dob, first_name, last_name, **extra_args):
+                    dob, first_name, last_name, likes_action,
+                    likes_adventure, likes_crime, likes_fan_fiction,
+                    likes_fantasy, likes_horror, likes_romance, **extra_args):
         account = self.create_user(email, username, password,
-                                   dob, first_name, last_name, **extra_args)
+                                   dob, first_name, last_name, likes_action,
+                                   likes_adventure, likes_crime, likes_fan_fiction,
+                                   likes_fantasy, likes_horror, likes_romance, **extra_args)
 
         account.is_admin = True
         account.save()
@@ -57,6 +70,15 @@ class Account(AbstractBaseUser):
 
     # YYYY-MM-DD structure
     dob = models.DateField(blank = False)
+
+    likes_action = models.BooleanField(default=False)
+    likes_adventure = models.BooleanField(default=False)
+    likes_crime = models.BooleanField(default=False)
+    likes_fan_fiction = models.BooleanField(default=False)
+    likes_fantasy = models.BooleanField(default=False)
+    likes_horror = models.BooleanField(default=False)
+    likes_romance = models.BooleanField(default=False)
+
 
     #Using Twitter 140 char limit
     bio = models.CharField(max_length=140, blank=True)

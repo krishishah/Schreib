@@ -40,7 +40,10 @@
      */
     function register() {
       Authentication.register(vm.email, vm.password, vm.username, vm.dob,
-                              vm.first_name, vm.last_name);
+                              vm.first_name, vm.last_name, vm.likes_action,
+                              vm.likes_adventure, vm.likes_crime,
+                              vm.likes_fan_fiction, vm.likes_fantasy,
+                              vm.likes_horror, vm.likes_romance);
     }
   }
 })();

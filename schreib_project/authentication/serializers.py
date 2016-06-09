@@ -12,7 +12,9 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = ('id', 'email', 'username', 'created_at', 'updated_at',
                   'first_name', 'last_name', 'bio', 'dob', 'password',
-                  'confirm_password')
+                  'confirm_password', 'likes_action','likes_adventure',
+                  'likes_crime', 'likes_fan_fiction',
+                  'likes_fantasy', 'likes_horror', 'likes_romance')
 
         read_only_fields = ('created_at', 'updated_at',)
 
@@ -24,7 +26,16 @@ class AccountSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         instance.email = validated_data.get('email', instance.email)
         instance.username = validated_data.get('username', instance.username)
-        instance.bio = validated_data.get('bio', instance.bio)
+        #instance.bio = validated_data.get('bio', instance.bio)
+        instance.likes_action = validated_data.get('likes_action', instance.likes_action)
+        instance.likes_adventure = validated_data.get('likes_adventure', instance.likes_adventure)
+        instance.likes_crime = validated_data.get('likes_crime', instance.likes_crime)
+        instance.likes_fan_fiction = validated_data.get('likes_fan_fiction', instance.likes_fan_fiction)
+        instance.likes_fantasy = validated_data.get('likes_fantasy', instance.likes_fantasy)
+        instance.likes_horror = validated_data.get('likes_horror', instance.likes_horror)
+        instance.likes_romance = validated_data.get('likes_romance', instance.likes_romance)
+
+
         instance.save()
 
         #Password defaults to none if empty password is provided

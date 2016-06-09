@@ -63,5 +63,6 @@
         Snackbar.error(data.error);
       }
     }
+
   }
 })();
