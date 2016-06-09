@@ -18,17 +18,21 @@ from django.contrib import admin
 from rest_framework_nested import routers
 from authentication.views import AccountViewSet, LoginView, LogoutView
 from posts.views import AccountPostsViewSet, PostViewSet
+from reviews.views import AccountReviewsViewSet, PostReviewsViewSet, ReviewViewSet
 from schreib_project.views import IndexView
 
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
-
 router.register(r'posts', PostViewSet)
+router.register(r'reviews', ReviewViewSet)
 
 accounts_router = routers.NestedSimpleRouter(
-    router, r'accounts', lookup='account'
+    router, r'accounts', lookup='account',
+#    router, r'posts', lookup='post'
 )
+
 accounts_router.register(r'posts', AccountPostsViewSet)
+accounts_router.register(r'reviews', AccountReviewsViewSet)
 
 urlpatterns = [
 
