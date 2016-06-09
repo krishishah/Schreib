@@ -6,8 +6,8 @@
   'use strict';
 
   angular
-    .module('schreib.posts.controllers')
-    .controller('NewPostController', NewPostController);
+  .module('schreib.posts.controllers')
+  .controller('NewPostController', NewPostController);
 
   NewPostController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Posts'];
 
@@ -70,7 +70,8 @@
       $scope.tinymceModel = 'Write your story here...';
 
       $scope.tinymceOptions = {
-        selector: '#textarea',
+        selector: 'textarea',
+        entity_encoding: 'xml',
         plugins: 'wordcount spellchecker autoresize save',
         toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
         menubar: false,

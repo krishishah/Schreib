@@ -21,7 +21,7 @@
       create: create,
       get: get,
       get_single: get_single,
-      get_single_content: get_single_content
+      //destroy: destroy
     };
 
     return Posts;
@@ -65,9 +65,6 @@
       return $http.get('/api/v1/posts/' + id + '/');
     }
 
-    function get_single_content(id) {
-      return $http.get('/api/v1/posts/' + id.content + '/');
-    }
 
     /**
     * @name get
@@ -81,6 +78,16 @@
     }
 
 
+    /**
+     * @name destroy
+     * @desc Destroys the post with username `username` and id 'id'
+     * @param {string} id The id of the post to be destroyed
+     * @returns {Promise}
+     * @memberOf schreib.posts.services.Posts
+     */
+    // function destroy(id,username) {
+    //   return $http.delete('/api/v1/accounts/' + id '/' + username + '/');
+    // }
 
   }
 })();

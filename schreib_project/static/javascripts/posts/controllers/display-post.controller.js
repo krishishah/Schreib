@@ -19,17 +19,34 @@
 
     vm.account = undefined;
     vm.post = undefined;
-    vm.content = undefined;
+
+    configureTinyMceEditorUI();
 
     activate();
-    activateTinyMce();
+
 
     /**
     * @name activate
     * @desc Actions to be performed when this controller is instantiated
     * @memberOf schreib.posts.controllers.DisplayPostController
     */
+
+    function configureTinyMceEditorUI() {
+      $scope.tinymceOptions = {
+        selector: '#readarea',
+        entity_encoding: 'xml',
+        readonly: 1,
+        plugins: 'autoresize',
+        toolbar: false,
+        menubar: false,
+        browser_spellcheck: true,
+        save_onsavecallback: (function () { console.log('Saved'); })
+      };
+    }
+
+
     function activate() {
+
       var username = $routeParams.username.substr(1);
       var id = $routeParams.id;
       console.log(username);
@@ -44,7 +61,6 @@
       */
       function accountSuccessFn(response) {
         vm.account = response.data;
-        console.log(vm.account);
       }
 
 
@@ -64,8 +80,7 @@
         */
       function postsSuccessFn(response) {
         vm.post = response.data;
-        vm.content = response.data.content;
-        console.log(vm.post);
+        activateTinyMceContent(response.data.content);
       }
 
 
@@ -76,25 +91,13 @@
       function postsErrorFn(response) {
         Snackbar.error(response.data.error);
       }
+
     }
 
-    function activateTinyMce() {
 
-      //$scope.tinymceModel = '<span>'  + vm.content + '</span>';
-      //$scope.tinymceModel = vm.content;
+    function activateTinyMceContent(content) {
 
-      $scope.tinymceOptions = {
-        selector: 'textarea',
-        plugins: 'wordcount spellchecker autoresize save code',
-        toolbar: 'code | undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
-        menubar: false,
-        browser_spellcheck: true,
-        save_onsavecallback: (function () { console.log('Saved'); })
-      };
-
-      $scope.tinymceModel = JSON.stringify(vm.content);
-      console.log("this is the content" + typeof JSON.stringify(vm.content));
-
+      $scope.tinymceModel = content;
 
       vm.getContent = function() {
         console.log('Editor content:', $scope.tinymceModel);
@@ -112,12 +115,6 @@
       };
 
     }
-
-    // vm.setContent = function() {
-    //   $scope.tinymceModel = 'Time: ' + (new Date());
-    //   console.log('Editor content:');
-    // };
-
 
 
   }
