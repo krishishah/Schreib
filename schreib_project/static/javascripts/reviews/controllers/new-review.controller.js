@@ -21,9 +21,9 @@
     activate();
     configureTinyMceEditorUI();
 
-    //vm.post = undefined;
+    vm.post = undefined;
     vm.submit = submit;
-    vm.story_object;
+
 
     /**
     * @name submit
@@ -33,6 +33,7 @@
     function submit() {
       console.log(vm.story_object);
       var content_edit = vm.getContentEdit();
+      var post_id = setPost();
 
 
       $rootScope.$broadcast('review.created', {
@@ -41,7 +42,9 @@
           username: Authentication.getAuthenticatedAccount().username
         },
 
-        //story: vm.post
+        post: {
+          id: post_id
+        },
 
         content_edit: content_edit,
 
@@ -63,8 +66,6 @@
         overall_comment: vm.overall_comment,
         overall_rating: vm.overall_rating,
 
-        story_object:vm.story_object
-
       });
 
       //console.log(Posts.get_single(vm.post.id));
@@ -73,7 +74,7 @@
       Reviews.create(content_edit, vm.language_well, vm.language_improve, vm.character_well,
                  vm.character_improve, vm.setting_well, vm.setting_improve, vm.structure_well,
                  vm.structure_improve, vm.theme_well, vm.theme_improve, vm.overall_comment,
-              vm.overall_rating,vm.story_object).then(createReviewSuccessFn, createReviewErrorFn);
+              vm.overall_rating).then(createReviewSuccessFn, createReviewErrorFn);
 
 
       /**
@@ -104,16 +105,16 @@
       Posts.get_single(id).then(postsSuccessFn, postsErrorFn);
 
       function postsSuccessFn(response) {
-        //vm.content = response.data.id;
+        vm.content = response.data.id;
+        vm.post = response.data;
         setPost(response.data);
         activateTinyMceContent(response.data.content);
       }
 
 
 
-      function setPost(story) {
-        console.log(story);
-        vm.story_object = story;
+      function setPost(id) {
+        return id;
       }
 
       /**

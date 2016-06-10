@@ -49,7 +49,7 @@
     function create(content_edit, language_well, language_improve, character_well,
       character_improve, setting_well, setting_improve, structure_well,
       structure_improve, theme_well, theme_improve, overall_comment,
-      overall_rating, story_object) {
+      overall_rating) {
 
         return $http.post('/api/v1/reviews/' , {
           content_edit: content_edit,
@@ -71,8 +71,6 @@
 
           overall_comment: overall_comment,
           overall_rating: overall_rating,
-
-          story_object: story_object
 
         });
       }
