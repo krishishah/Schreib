@@ -5,7 +5,7 @@ from authentication.models import Account
 class Post(models.Model):
     author = models.ForeignKey(Account)
     content = models.TextField()
-    title = models.TextField()
+    title = models.TextField(unique=True)
     genre = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)

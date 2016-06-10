@@ -11,7 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
 
         fields = ('id', 'author', 'content', 'title', 'genre', 'created_at', 'updated_at')
-        read_only_fields = ('id', 'created_at', 'updated_at')
+        read_only_fields = ('created_at', 'updated_at')
 
     def get_validation_exclusions(self, *args, **kwargs):
         exclusions = super(PostSerializer, self).get_validation_exclusions()

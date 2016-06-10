@@ -9,12 +9,12 @@
   .module('schreib.posts.controllers')
   .controller('NewPostController', NewPostController);
 
-  NewPostController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Posts'];
+  NewPostController.$inject = ['$location','$rootScope', '$scope', 'Authentication', 'Snackbar', 'Posts'];
 
   /**
   * @namespace NewPostController
   */
-  function NewPostController($rootScope, $scope, Authentication, Snackbar, Posts) {
+  function NewPostController($location, $rootScope, $scope, Authentication, Snackbar, Posts) {
     var vm = this;
 
     activate();
@@ -51,7 +51,9 @@
       * @desc Show snackbar with success message
       */
       function createPostSuccessFn(data, status, headers, config) {
-        Snackbar.show('Success! Post created.');
+        Snackbar.show('Success! Story posted.');
+        window.location = '/';
+
       }
 
 

@@ -4,8 +4,8 @@ from posts.models import Post
 
 
 class Review(models.Model):
+    story = models.ForeignKey(Post)
     author = models.ForeignKey(Account)
-    post = models.ForeignKey(Post)
 
     content_edit      = models.TextField()
 
@@ -25,7 +25,7 @@ class Review(models.Model):
     theme_improve     = models.TextField()
 
     overall_comment   = models.TextField()
-    overall_rating    = models.FloatField()
+    overall_rating    = models.IntegerField()
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -34,17 +34,3 @@ class Review(models.Model):
 
     def __str__(self):
         return '{0}'.format(self.content_edit)
-
-
-
-    # def get_created_at(self):
-    #     return self.created_at
-    #
-    # def get_updated_at(self):
-    #     return self.updated_at
-    #
-    # def get_author(self):
-    #     return self.author
-    #
-    # def get_post(self):
-    #     return self.post

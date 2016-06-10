@@ -9,7 +9,8 @@
       'schreib.layout',
       'schreib.posts',
       'schreib.utils',
-      'schreib.accounts'
+      'schreib.accounts',
+      'schreib.reviews'
     ]);
 
   angular

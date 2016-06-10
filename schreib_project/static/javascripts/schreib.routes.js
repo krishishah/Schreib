@@ -47,9 +47,9 @@
       controllerAs: 'vm',
       templateUrl: '/static/templates/accounts/settings.html'
     }).when('/+:username/posts/:id/review', {
-      controller: 'DisplayPostController',
+      controller: 'NewReviewController',
       controllerAs: 'vm',
-      templateUrl: '/static/templates/reviews/review.html'
+      templateUrl: '/static/templates/reviews/new-review.html'
     }).when('/+:username/works', {
       controller: 'AccountController',
       controllerAs: 'vm',

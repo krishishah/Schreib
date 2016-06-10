@@ -16,7 +16,10 @@ class ReviewViewSet(viewsets.ModelViewSet):
         return (permissions.IsAuthenticated(), IsAuthorOfReview(),)
 
     def perform_create(self, serializer):
-        instance = serializer.save(author=self.request.user)
+        #print(self)
+        print(serializer)
+        #print(self.request.user)
+        instance = serializer.save(author=self.request.user, story=self.request.story)
 
         return super(ReviewViewSet, self).perform_create(serializer)
 
@@ -33,11 +36,11 @@ class AccountReviewsViewSet(viewsets.ViewSet):
 
 
 class PostReviewsViewSet(viewsets.ViewSet):
-    queryset = Review.objects.select_related('post').all()
+    queryset = Review.objects.select_related('story').all()
     serializer_class = ReviewSerializer
 
     def list(self, request, post_id=None):
-        queryset = self.queryset.filter(post__id=post_id)
+        queryset = self.queryset.filter(story__id=post_id)
         serializer = self.serializer_class(queryset, many=True)
 
         return Response(serializer.data)
