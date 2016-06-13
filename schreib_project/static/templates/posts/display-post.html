@@ -9,8 +9,12 @@
   </div><br><br> -->
 
   <div class="mceNonEditable">
-    <br>
-    <form role="form" method="post" ng-controller="DisplayPostController as vm" ng-submit="vm.submit()">
+      <div class="form-group text-right">
+        <a ng-href="/+{{ vm.post.author.username }}/posts/{{ vm.post.id }}/review" class="btn btn-primary">
+          Review >
+        </a>
+      </div>    
+      <form role="form" method="post" ng-controller="DisplayPostController as vm" ng-submit="vm.submit()">
       <textarea class="tinyMce mceNonEditable" id="readarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
       <br><br>
       <div class="form-group text-right">
