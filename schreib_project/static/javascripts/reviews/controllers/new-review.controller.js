@@ -17,12 +17,14 @@
   */
   function NewReviewController($routeParams, $rootScope, $scope, Authentication, Snackbar, Posts, Reviews, $location) {
     var vm = this;
+    var post_id = undefined;
 
     activate();
     configureTinyMceEditorUI();
 
     vm.post = undefined;
     vm.submit = submit;
+
 
 
     /**
@@ -33,17 +35,17 @@
     function submit() {
       console.log(vm.story_object);
       var content_edit = vm.getContentEdit();
-      var post_id = setPost();
+      // var post_id = setPost();
 
 
       $rootScope.$broadcast('review.created', {
 
-        author: {
-          username: Authentication.getAuthenticatedAccount().username
+        story: {
+          id: post_id
         },
 
-        post: {
-          id: post_id
+        author: {
+          username: Authentication.getAuthenticatedAccount().username
         },
 
         content_edit: content_edit,
@@ -114,7 +116,8 @@
 
 
       function setPost(id) {
-        return id;
+        post_id = id;
+        // return id;
       }
 
       /**

@@ -19,6 +19,9 @@
 
     vm.columns = [];
 
+    var curCol = 0;
+    var maxCol = calculateNumberOfColumns();
+
     activate();
 
 
@@ -61,9 +64,14 @@
     * @memberOf schreib.posts.controllers.PostsController
     */
     function approximateShortestColumn() {
-      var scores = vm.columns.map(columnMapFn);
+      // var scores = vm.columns.map(columnMapFn);
 
-      return scores.indexOf(Math.min.apply(this, scores));
+      // return scores.indexOf(Math.min.apply(this, scores));
+
+      var cur = curCol;
+      curCol = (curCol + 1) % maxCol;
+
+      return cur;
 
 
       /**

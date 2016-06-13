@@ -16,7 +16,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         'character_well', 'character_improve', 'setting_well',
         'setting_improve', 'structure_well', 'structure_improve',
         'theme_well', 'theme_improve', 'overall_comment',
-        'overall_rating', 'story_object', 'created_at', 'updated_at')
+        'overall_rating', 'created_at', 'updated_at')
 
         read_only_fields = ('id', 'created_at', 'updated_at')
 

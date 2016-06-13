@@ -5,6 +5,8 @@ from reviews.models import Review
 from reviews.permissions import IsAuthorOfReview
 from reviews.serializers import ReviewSerializer
 
+from posts.models import Post
+
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.order_by('-created_at')
@@ -19,7 +21,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
         #print(self)
         print(serializer)
         #print(self.request.user)
-        instance = serializer.save(author=self.request.user, story=self.request.story)
+        instance = serializer.save(author=self.request.user, story=Post.objects.get(id=24))
 
         return super(ReviewViewSet, self).perform_create(serializer)
 

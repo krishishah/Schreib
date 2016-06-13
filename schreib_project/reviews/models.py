@@ -25,7 +25,7 @@ class Review(models.Model):
     theme_improve     = models.TextField()
 
     overall_comment   = models.TextField()
-    overall_rating    = models.IntegerField()
+    overall_rating    = models.FloatField()
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
