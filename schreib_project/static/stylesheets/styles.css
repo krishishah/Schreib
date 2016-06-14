@@ -2,16 +2,32 @@ a {
   color: black;
 }
 
-a.onblack {
-  color:white;
-}
-
-a.username {
+td.username {
   font-weight: bold;
+  background-color: lightgoldenrodyellow;
+  padding-left: 5px;
+  padding-right: 5px; 
+  width: 33%;
 }
 
-a.comment {
+tr.comment {
   font-style: italic;
+  background-color: white;
+}
+
+td.rating {
+  background-color: lightgoldenrodyellow;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px; 
+}
+
+table td:last-child {
+  width: 100%;
+}
+
+table {
+  width: 100%;
 }
 
 a:hover {

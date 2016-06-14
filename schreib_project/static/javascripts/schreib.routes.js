@@ -54,6 +54,10 @@
       controller: 'AccountController',
       controllerAs: 'vm',
       templateUrl: '/static/templates/accounts/my-works.html'
+    }).when('/+:username/reviews/:review_id/posts/:post_id', {
+      controller: 'DisplayFullReviewController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/reviews/full-review.html'
     }).otherwise('/');
   }
 })();
