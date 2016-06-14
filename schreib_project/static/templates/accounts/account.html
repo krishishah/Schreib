@@ -7,6 +7,32 @@
     <h1 class="account__username">{{ vm.account.first_name }} {{ vm.account.last_name }}</h1>
     <h3><i> {{ vm.account.username }} </i></h3>
     <p class="account__tagline">{{ vm.account.bio }}</p>
+    <div ng-if="vm.account.likes_action || vm.account.likes_adventure || vm.account.likes_crime || vm.account.likes_fan_fiction || vm.account.likes_fantasy || vm.account.likes_horror">
+      <h5>Favourite genres:
+          <ul>
+            <div ng-if="vm.account.likes_action">
+              <li> Action
+              </div>
+              <div ng-if="vm.account.likes_adventure">
+                <li> Adventure
+              </div>
+              <div ng-if="vm.account.likes_crime">
+                <li> Crime
+              </div>
+              <div ng-if="vm.account.likes_fan_fiction">
+                <li> Fan Fiction
+              </div>
+              <div ng-if="vm.account.likes_fantasy">
+                <li> Fantasy
+              </div>
+              <div ng-if="vm.account.likes_horror">
+                <li> Horror
+              </div>
+              <div ng-if="vm.account.likes_romance">
+                <li> Romance
+              </div>
+          </ul>
+      </div>
   </div>
 
   <posts posts="vm.posts"></posts>

@@ -6,9 +6,14 @@ a.onblack {
   color: white;
 }
 
+div.post {
+  background-color: #262626;
+}
+
 td.username {
   font-weight: bold;
-  background-color: lightgoldenrodyellow;
+  background-color: #3B0B17;
+  color: white;
   padding-left: 5px;
   padding-right: 5px;
   width: 33%;
@@ -130,12 +135,12 @@ a:hover {
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
 table, td, tr {
-  border: 1px solid #000;
+  border: 1px solid #3D3D3D;
   padding: 2px;
 }
 
 th {
-  border: 1px solid #000;
+  border: 1px solid #3D3D3D;
   padding: 10px;
   text-align: center;
   margin: 0 0 35px;
@@ -150,9 +155,7 @@ th.consider, th.welldone, th.improve {
 }
 
 textarea.table {
-  height: 100%;
-  width: 100%;
-  background-color: #191919;
+  background-color: #3D3D3D;
   border: #000;
   color: #999999;
 }

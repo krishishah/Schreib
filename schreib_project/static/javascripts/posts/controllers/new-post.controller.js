@@ -75,7 +75,7 @@
         selector: 'textarea',
         entity_encoding: 'xml',
         plugins: 'wordcount spellchecker autoresize save',
-        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
+        toolbar: 'undo redo | fontsizeselect fontnameselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | subscript superscript | save',
         menubar: false,
         browser_spellcheck: true,
         save_onsavecallback: (function () { console.log('Saved'); })
