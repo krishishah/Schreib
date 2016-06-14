@@ -11,8 +11,9 @@ div.post {
 }
 
 td.username {
+  border: 1px solid #3D3D3D;
   font-weight: bold;
-  background-color: #3B0B17;
+  background-color: 0 0;
   color: white;
   padding-left: 5px;
   padding-right: 5px;
@@ -21,13 +22,16 @@ td.username {
 }
 
 tr.comment {
+  border: 1px solid #3D3D3D;
   font-style: italic;
-  background-color: white;
+  background-color: 0 0;
+  color: white;
 }
 
 td.rating {
-  background-color: lightgoldenrodyellow;
-  color: black;
+  border: 1px solid #3D3D3D;
+  background-color: 0 0;
+  color: white;
   padding-left: 5px;
   padding-right: 5px;
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -134,13 +138,21 @@ a:hover {
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
 
-table, td, tr {
-  border: 1px solid #3D3D3D;
+table, tr {
+  /*border: 1px solid #3D3D3D;*/
   padding: 2px;
 }
 
+td {
+  padding: 4px;
+}
+
+tr {
+  padding-bottom: 0px;
+}
+
 th {
-  border: 1px solid #3D3D3D;
+  /*border: 1px solid #3D3D3D;*/
   padding: 10px;
   text-align: center;
   margin: 0 0 35px;
@@ -156,6 +168,6 @@ th.consider, th.welldone, th.improve {
 
 textarea.table {
   background-color: #3D3D3D;
-  border: #000;
+  /*border: #000;*/
   color: #999999;
 }

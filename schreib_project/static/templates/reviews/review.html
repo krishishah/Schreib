@@ -2,7 +2,7 @@
   <div class="col-sm-12">
     <table>
       <tr>
-        <td class="username"><a href="/+{{ review.author.username }}">
+        <td class="username"><a class="onblack" href="/+{{ review.author.username }}">
                 {{ review.author.username }}
               </a>
         </td>
@@ -11,7 +11,7 @@
         </td>
       </tr>
       <tr class="comment">
-        <td class="comment" colspan="2"><a ng-href="/+{{ review.author.username }}/reviews/{{ review.id }}/posts/{{ review.post_id }}">{{ review.overall_comment }}</a></td>
+        <td class="comment" colspan="2"><a class="onblack" ng-href="/+{{ review.author.username }}/reviews/{{ review.id }}/posts/{{ review.post_id }}">{{ review.overall_comment }}</a></td>
       </tr>
     </table>
   </div>
