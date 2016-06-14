@@ -2,6 +2,10 @@ a {
   color: black;
 }
 
+a.onblack {
+  color: white;
+}
+
 td.username {
   font-weight: bold;
   background-color: lightgoldenrodyellow;

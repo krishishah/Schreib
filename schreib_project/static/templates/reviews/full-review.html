@@ -1,23 +1,13 @@
-<div posts="vm.post" post="post" class="post" ng-show="vm.post">
+<div posts="vm.post" post="post" reviews="vm.review" review="review" class="post" ng-show="vm.post">
 
   <br>
-  <h1>{{ vm.post.title }}</h1>
-  <br><h4>by {{ vm.post.author.first_name }} {{ vm.post.author.last_name }} </h4>
+  <br><h4>'{{ vm.post.title }}' by <a class="onblack" href="/+{{ vm.post.author.username }}">{{ vm.post.author.username }} </a></h4>
+  <br><h1>Review by <a class="onblack" href="/+{{ vm.review.author.username }}">{{ vm.review.author.username }} </a></h1>
 
-  <h5> Review: <br>
-       <i>1. Edit the story in red with any comments and edits you would make.<br>
-          2. Fill in the table below the story, and then give an overall rating and comment.
-      </i>
-  </h5>
-
-  <!-- <div class="post__content" contenteditable="true">
-    {{ vm.post.content }}
-  </div><br><br> -->
-
-  <div class="review__content">
+  <div class="review__content" contenteditable="false">
     <br>
-    <form role="form" method="review" ng-controller="NewReviewController as vm" ng-submit="vm.submit()">
-      <textarea class="tinyMce" id="textarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+    <form role="form" method="review" ng-controller="DisplayFullReviewController as vm">
+      <textarea class="tinyMce" id="readarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
       <br><br>
 
       <table style="width:100%">
@@ -38,10 +28,10 @@
           </ul>
         </td>
         <td>
-          <textarea rows="9" class="table" id="language_well" ng-model="vm.language_well" required></textarea>
+          <textarea rows="9" class="table" id="language_well" ng-model="language_well" required></textarea>
         </td>
        <td>
-          <textarea rows="9" class="table" id="language_improve" ng-model="vm.language_improve" required></textarea>
+          <textarea rows="9" class="table" id="language_improve" ng-model="language_improve" required></textarea>
         </td>
       </tr>
       <tr>
@@ -55,10 +45,10 @@
           </ul>
         </td>
         <td>
-          <textarea rows="6" class="table" id="character_well" ng-model="vm.character_well" required></textarea>
+          <textarea rows="6" class="table" id="character_well" ng-model="character_well" required></textarea>
         </td>
        <td>
-          <textarea rows="6" class="table" id="character_improve" ng-model="vm.character_improve" required></textarea>
+          <textarea rows="6" class="table" id="character_improve" ng-model="character_improve" required></textarea>
         </td>
       </tr>
       <tr>
@@ -69,10 +59,10 @@
           </ul>
         </td>
         <td>
-          <textarea rows="2" class="table" id="setting_well" ng-model="vm.setting_well" required></textarea>
+          <textarea rows="2" class="table" id="setting_well" ng-model="setting_well" required></textarea>
         </td>
        <td>
-          <textarea rows="2" class="table" id="setting_improve" ng-model="vm.setting_improve" required></textarea>
+          <textarea rows="2" class="table" id="setting_improve" ng-model="setting_improve" required></textarea>
         </td>
       </tr>
       <tr>
@@ -87,10 +77,10 @@
           </ul>
         </td>
         <td>
-          <textarea rows="9" class="table" id="structure_well" ng-model="vm.structure_well" required></textarea>
+          <textarea rows="9" class="table" id="structure_well" ng-model="structure_well" required></textarea>
         </td>
        <td>
-          <textarea rows="9" class="table" id="structure_improve" ng-model="vm.structure_improve" required></textarea>
+          <textarea rows="9" class="table" id="structure_improve" ng-model="structure_improve" required></textarea>
         </td>
       </tr>
       <tr>
@@ -105,10 +95,10 @@
           </ul>
         </td>
         <td>
-          <textarea rows="7" class="table" id="theme_well" ng-model="vm.theme_well" required></textarea>
+          <textarea rows="7" class="table" id="theme_well" ng-model="theme_well" required></textarea>
         </td>
        <td>
-          <textarea rows="7" class="table" id="theme_improve" ng-model="vm.theme_improve" required></textarea>
+          <textarea rows="7" class="table" id="theme_improve" ng-model="theme_improve" required></textarea>
         </td>
       </tr>
       </table>
@@ -121,31 +111,23 @@
         </div>
         <div class="col-sm-3">
           <fieldset class="rating" id="overall_rating">
-            <input type="radio" ng-model="vm.overall_rating" id="star5" name="rating" value='5' /><label class = "full" for="star5" title="Excellent - keep going"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star4half" name="rating" value=4.5 /><label class="half" for="star4half" title="Very good"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star4" name="rating" value=4 /><label class = "full" for="star4" title="Good"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star3half" name="rating" value=3.5 /><label class="half" for="star3half" title="Good"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star3" name="rating" value=3.0 /><label class = "full" for="star3" title="Good, but minor revisions needed"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star2half" name="rating" value=2.5 /><label class="half" for="star2half" title="Has potential, consider revisions"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star2" name="rating" value=2.0 /><label class = "full" for="star2" title="Can be considerably improved, but has potential"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star1half" name="rating" value=1.5 /><label class="half" for="star1half" title="Can be considerably improved, but has potential"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="star1" name="rating" value=1.0 /><label class = "full" for="star1" title="Consider revising completely"></label>
-            <input type="radio" ng-model="vm.overall_rating" id="starhalf" name="rating" value=0.5 /><label class="half" for="starhalf" title="Revise completely"></label>
+            <input type="radio" ng-model="overall_rating" id="star5" name="rating" value='5' /><label class = "full" for="star5" title="Excellent - keep going"></label>
+            <input type="radio" ng-model="overall_rating" id="star4half" name="rating" value=4.5 /><label class="half" for="star4half" title="Very good"></label>
+            <input type="radio" ng-model="overall_rating" id="star4" name="rating" value=4 /><label class = "full" for="star4" title="Good"></label>
+            <input type="radio" ng-model="overall_rating" id="star3half" name="rating" value=3.5 /><label class="half" for="star3half" title="Good"></label>
+            <input type="radio" ng-model="overall_rating" id="star3" name="rating" value=3.0 /><label class = "full" for="star3" title="Good, but minor revisions needed"></label>
+            <input type="radio" ng-model="overall_rating" id="star2half" name="rating" value=2.5 /><label class="half" for="star2half" title="Has potential, consider revisions"></label>
+            <input type="radio" ng-model="overall_rating" id="star2" name="rating" value=2.0 /><label class = "full" for="star2" title="Can be considerably improved, but has potential"></label>
+            <input type="radio" ng-model="overall_rating" id="star1half" name="rating" value=1.5 /><label class="half" for="star1half" title="Can be considerably improved, but has potential"></label>
+            <input type="radio" ng-model="overall_rating" id="star1" name="rating" value=1.0 /><label class = "full" for="star1" title="Consider revising completely"></label>
+            <input type="radio" ng-model="overall_rating" id="starhalf" name="rating" value=0.5 /><label class="half" for="starhalf" title="Revise completely"></label>
           </fieldset>
         </div>
       </div>
 
       <div class="form-group">
         <label for="comment">Overall comment:</label>
-        <textarea class="form-control" id="overall_comment" ng-model="vm.overall_comment" required></textarea>
-      </div>
-
-
-
-      <div class="form-group text-right">
-        <button type="submit" class="btn btn-primary">
-          Submit Review
-        </button>
+        <textarea class="form-control" id="overall_comment" ng-model="overall_comment" required></textarea>
       </div>
 
     </form>

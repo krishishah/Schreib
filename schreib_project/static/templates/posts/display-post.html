@@ -2,7 +2,7 @@
 
   <br>
   <h1>{{ vm.post.title }}</h1>
-  <br><h4>By {{ vm.post.author.first_name }} {{ vm.post.author.last_name }} </h4>
+  <br><h4>By <a class="onblack" href="/+{{ vm.post.author.username }}">{{ vm.post.author.username }} </a></h4>
 
   <!-- <div class="post__content" contenteditable="true">
     {{ vm.post.content }}

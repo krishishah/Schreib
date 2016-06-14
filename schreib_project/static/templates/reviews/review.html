@@ -7,15 +7,12 @@
               </a>
         </td>
         <td class="rating">
-          Rating: {{ review.overall_rating }}
+          Rating: {{ review.overall_rating }}/5
         </td>
       </tr>
       <tr class="comment">
-        <td class="comment" colspan="2"><a ng-href="/+{{ review.author.username }}/reviews/{{ review.id }}">{{ review.overall_comment }}</a></td>
+        <td class="comment" colspan="2"><a ng-href="/+{{ review.author.username }}/reviews/{{ review.id }}/posts/{{ review.post_id }}">{{ review.overall_comment }}</a></td>
       </tr>
     </table>
   </div>
 </div>
-
-
-
