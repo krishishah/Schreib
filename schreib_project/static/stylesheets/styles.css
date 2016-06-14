@@ -6,8 +6,9 @@ td.username {
   font-weight: bold;
   background-color: lightgoldenrodyellow;
   padding-left: 5px;
-  padding-right: 5px; 
+  padding-right: 5px;
   width: 33%;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 tr.comment {
@@ -19,7 +20,8 @@ td.rating {
   background-color: lightgoldenrodyellow;
   color: black;
   padding-left: 5px;
-  padding-right: 5px; 
+  padding-right: 5px;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 table td:last-child {
