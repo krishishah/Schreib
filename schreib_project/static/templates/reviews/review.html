@@ -1,22 +1,21 @@
 <div class="row">
-  <div class="col-sm-12 text-left">
-    <!-- <div class="well"> -->
-      <div class="review">
-        <div class="review__overall_rating">
-          <!-- <a ng-href="/read">{{ review.title }}</a> -->
-          <a class="comment onblack" ng-href="/+{{ review.author.username }}/reviews/{{ review.id }}">{{ review.overall_comment }}</a>
-        </div>
-
-        <div class="review__overall_rating">
-          Rating: {{ review.overall_rating}}
-        </div>
-
-        <div class="review__meta">
-          <a class='onblack username' href="/+{{ review.author.username }}">
-            {{ review.author.username }}
-          </a>
-        </div>
-      </div>
-    <!-- </div> -->
+  <div class="col-sm-12">
+    <table>
+      <tr>
+        <td class="username"><a href="/+{{ review.author.username }}">
+                {{ review.author.username }}
+              </a>
+        </td>
+        <td class="rating">
+          Rating: {{ review.overall_rating }}
+        </td>
+      </tr>
+      <tr class="comment">
+        <td class="comment" colspan="2"><a ng-href="/+{{ review.author.username }}/reviews/{{ review.id }}">{{ review.overall_comment }}</a></td>
+      </tr>
+    </table>
   </div>
 </div>
+
+
+
