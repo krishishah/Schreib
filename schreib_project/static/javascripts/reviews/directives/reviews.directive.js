@@ -19,7 +19,7 @@
     * @memberOf schreib.reviews.directives.Posts
     */
     var directive = {
-      controller: 'PostsController',
+      controller: 'ReviewsController',
       controllerAs: 'vm',
       restrict: 'E',
       scope: {

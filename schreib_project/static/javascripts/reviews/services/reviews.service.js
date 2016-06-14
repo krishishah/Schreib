@@ -21,6 +21,7 @@
       create: create,
       get: get,
       get_single: get_single,
+      get_by_post_id: get_by_post_id
       //destroy: destroy
     };
 
@@ -96,6 +97,11 @@
       */
       function get(username) {
         return $http.get('/api/v1/accounts/' + username + '/reviews/');
+      }
+
+      function get_by_post_id(post_id) {
+        return $http.get('/api/v1/reviews/' + post_id + '/');
+
       }
 
 

@@ -13,7 +13,7 @@
         <a ng-href="/+{{ vm.post.author.username }}/posts/{{ vm.post.id }}/review" class="btn btn-primary">
           Review >
         </a>
-      </div>    
+      </div>
       <form role="form" method="post" ng-controller="DisplayPostController as vm" ng-submit="vm.submit()">
       <textarea class="tinyMce mceNonEditable" id="readarea" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
       <br><br>
@@ -26,5 +26,6 @@
   </div>
 
   <!-- Display reviews here (overall comment & rating) if logged in user is same as post author -->
+  <reviews reviews="vm.reviews" ng-show="vm.reviews"></reviews>
 
 </div>

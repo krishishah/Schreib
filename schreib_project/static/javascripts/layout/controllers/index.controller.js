@@ -52,6 +52,7 @@
       */
       function postsSuccessFn(data, status, headers, config) {
         vm.posts = data.data;
+
       }
 
 

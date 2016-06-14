@@ -68,10 +68,10 @@ DATABASES = {
         'NAME': 'g1527120_u',
         'USER': 'g1527120_u',
         'PASSWORD': 'jBQ4okLjL0',
-        #'HOST': 'localhost',         #For development outside of Imperial Network
-        #'PORT': '12345',             #For development outside of Imperial Network
-        'HOST': 'db.doc.ic.ac.uk',  #For development within Imperial
-        'PORT': '5432',             #For development within Imperial
+        'HOST': 'localhost',         #For development outside of Imperial Network
+        'PORT': '12345',             #For development outside of Imperial Network
+        #'HOST': 'db.doc.ic.ac.uk',  #For development within Imperial
+        #'PORT': '5432',             #For development within Imperial
     }
 }
 

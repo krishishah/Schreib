@@ -6,23 +6,26 @@
   'use strict';
 
   angular
-    .module('schreib.posts.controllers')
-    .controller('DisplayPostController', DisplayPostController);
+  .module('schreib.posts.controllers')
+  .controller('DisplayPostController', DisplayPostController);
 
-  DisplayPostController.$inject = ['$scope','$location', '$routeParams', 'Posts', 'Account', 'Snackbar'];
+  DisplayPostController.$inject = ['$scope','$location', '$routeParams', 'Posts', 'Account', 'Snackbar', 'Reviews'];
 
   /**
   * @namespace DisplayPostController
   */
-  function DisplayPostController($scope, $location, $routeParams, Posts, Account, Snackbar) {
+  function DisplayPostController($scope, $location, $routeParams, Posts, Account, Snackbar, Reviews) {
     var vm = this;
 
     vm.account = undefined;
     vm.post = undefined;
 
+    vm.reviews = [];
     configureTinyMceEditorUI();
 
     activate();
+
+    activateReviews();
 
 
     /**
@@ -75,9 +78,9 @@
 
 
       /**
-        * @name postsSucessFn
-        * @desc Update `posts` on viewmodel
-        */
+      * @name postsSucessFn
+      * @desc Update `posts` on viewmodel
+      */
       function postsSuccessFn(response) {
         vm.post = response.data;
         activateTinyMceContent(response.data.content);
@@ -85,12 +88,56 @@
 
 
       /**
-        * @name postsErrorFn
-        * @desc Show error snackbar
-        */
+      * @name postsErrorFn
+      * @desc Show error snackbar
+      */
       function postsErrorFn(response) {
         Snackbar.error(response.data.error);
       }
+
+    }
+
+    function activateReviews() {
+
+      //var username = $routeParams.username.substr(1);
+      //var id = $routeParams.id;
+      //console.log(username);
+      //console.log(id);
+
+      //Account.get(username).then(accountSuccessFn, accountErrorFn);
+
+
+
+      Reviews.all().then(reviewsSuccessFn, reviewsErrorFn);
+
+      $scope.$on('review.created', function (event, review) {
+        vm.reviews.unshift(post);
+      });
+
+      $scope.$on('reviews.created.error', function () {
+        vm.reviews.shift();
+      });
+
+      /**
+      * @name reviewsSucessFn
+      * @desc Update `reviews` on viewmodel
+      */
+      function reviewsSuccessFn(response) {
+        vm.reviews = response.data;
+        console.log(response.data);
+      }
+
+
+      /**
+      * @name reviewsErrorFn
+      * @desc Show error snackbar
+      */
+      function reviewsErrorFn(response) {
+        Snackbar.error(response.data.error);
+      }
+
+
+      console.log(vm.reviews);
 
     }
 
