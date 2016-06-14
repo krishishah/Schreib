@@ -99,16 +99,11 @@
 
     function activateReviews() {
 
-      //var username = $routeParams.username.substr(1);
-      //var id = $routeParams.id;
-      //console.log(username);
-      //console.log(id);
-
-      //Account.get(username).then(accountSuccessFn, accountErrorFn);
-
-
+      var post_id = $routeParams.id;
 
       Reviews.all().then(reviewsSuccessFn, reviewsErrorFn);
+      //Reviews.get_by_post_id(post_id).then(reviewsSuccessFn, reviewsErrorFn);
+
 
       $scope.$on('review.created', function (event, review) {
         vm.reviews.unshift(post);
@@ -123,8 +118,15 @@
       * @desc Update `reviews` on viewmodel
       */
       function reviewsSuccessFn(response) {
-        vm.reviews = response.data;
+        var revs = response.data;
         console.log(response.data);
+        for(var i = 0; i < revs.length; i++) {
+          if(revs[i].story.id == post_id) {
+            vm.reviews.push(revs[i]);
+          }
+        }
+
+        //vm.reviews = response.data;
       }
 
 
@@ -135,10 +137,6 @@
       function reviewsErrorFn(response) {
         Snackbar.error(response.data.error);
       }
-
-
-      console.log(vm.reviews);
-
     }
 
 

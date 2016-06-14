@@ -21,6 +21,7 @@
       create: create,
       get: get,
       get_single: get_single,
+      get_reviews: get_reviews
       //destroy: destroy
     };
 
@@ -88,6 +89,10 @@
     // function destroy(id,username) {
     //   return $http.delete('/api/v1/accounts/' + id '/' + username + '/');
     // }
+
+    function get_reviews(id) {
+      return $http.get('/api/v1/posts/' + id + '/reviews/');
+    }
 
   }
 })();

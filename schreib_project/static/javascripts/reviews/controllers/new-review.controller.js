@@ -26,16 +26,14 @@
     vm.submit = submit;
 
 
-
     /**
     * @name submit
     * @desc Create a new Review
     * @memberOf schreib.reviews.controllers.NewReviewController
     */
     function submit() {
-      console.log(vm.story_object);
       var content_edit = vm.getContentEdit();
-      // var post_id = setPost();
+      var post_id = $routeParams.id;
 
 
       $rootScope.$broadcast('review.created', {
@@ -65,6 +63,8 @@
         theme_well: vm.theme_well,
         theme_improve: vm.theme_improve,
 
+        post_id: post_id,
+
         overall_comment: vm.overall_comment,
         overall_rating: vm.overall_rating,
 
@@ -75,7 +75,7 @@
 
       Reviews.create(content_edit, vm.language_well, vm.language_improve, vm.character_well,
                  vm.character_improve, vm.setting_well, vm.setting_improve, vm.structure_well,
-                 vm.structure_improve, vm.theme_well, vm.theme_improve, vm.overall_comment,
+                 vm.structure_improve, vm.theme_well, vm.theme_improve, post_id, vm.overall_comment,
               vm.overall_rating).then(createReviewSuccessFn, createReviewErrorFn);
 
 

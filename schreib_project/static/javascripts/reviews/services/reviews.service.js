@@ -49,7 +49,7 @@
     */
     function create(content_edit, language_well, language_improve, character_well,
       character_improve, setting_well, setting_improve, structure_well,
-      structure_improve, theme_well, theme_improve, overall_comment,
+      structure_improve, theme_well, theme_improve, post_id, overall_comment,
       overall_rating) {
 
         return $http.post('/api/v1/reviews/' , {
@@ -69,6 +69,8 @@
 
           theme_well: theme_well,
           theme_improve: theme_improve,
+
+          post_id: post_id,
 
           overall_comment: overall_comment,
           overall_rating: overall_rating,
@@ -100,8 +102,7 @@
       }
 
       function get_by_post_id(post_id) {
-        return $http.get('/api/v1/reviews/' + post_id + '/');
-
+        return $http.get('/api/v1/posts/' + post_id + '/reviews/');
       }
 
 

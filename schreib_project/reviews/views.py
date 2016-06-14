@@ -19,9 +19,9 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         #print(self)
-        print(serializer)
+        print(serializer.validated_data)
         #print(self.request.user)
-        instance = serializer.save(author=self.request.user, story=Post.objects.get(id=24))
+        instance = serializer.save(author=self.request.user, story=Post.objects.get(id=serializer.validated_data['post_id']))
 
         return super(ReviewViewSet, self).perform_create(serializer)
 
@@ -42,7 +42,7 @@ class PostReviewsViewSet(viewsets.ViewSet):
     serializer_class = ReviewSerializer
 
     def list(self, request, post_id=None):
-        queryset = self.queryset.filter(story__id=post_id)
+        queryset = self.queryset.filter(post__id=post_id)
         serializer = self.serializer_class(queryset, many=True)
 
         return Response(serializer.data)
